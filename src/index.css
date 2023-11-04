@@ -1,15 +1,22 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --main-font: 'Poppins', sans-serif;
+  --main-color: rgb(211, 83, 8);
+  --second-color: rgb(212, 141, 99);
+  --third-color: rgb(234, 208, 192);
+  --words-color: rgb(58, 58, 58);
+  --header-words: rgb(235, 220, 220);
+  --background-color: rgb(11, 10, 10);
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  background-color: var(--background-color);
 }
