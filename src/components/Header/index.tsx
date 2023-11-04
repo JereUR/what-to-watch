@@ -3,7 +3,7 @@ import film from '../../assets/cine-logo.jpg'
 
 export const Header = () => {
   return (
-    <HeaderStyled>
+    <HeaderStyled className="header">
       <HeaderContent>
         <img src={film} alt="film" />
         <h1>What To Watch </h1>
