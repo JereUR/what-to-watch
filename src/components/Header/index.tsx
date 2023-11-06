@@ -1,23 +1,22 @@
 import styled from 'styled-components'
 import film from '../../assets/cine-logo.jpg'
 
-export const Header = () => {
+export default function Header() {
   return (
-    <HeaderStyled className="header">
+    <StyledHeader className="header">
       <HeaderContent>
         <img src={film} alt="film" />
         <h1>What To Watch </h1>
         <p>Find something new to watch...</p>
       </HeaderContent>
-    </HeaderStyled>
+    </StyledHeader>
   )
 }
 
-const HeaderStyled = styled.header`
+const StyledHeader = styled.header`
   top: 0;
   z-index: 3;
   padding: 40px;
-  width: 100%;
   background-color: var(--background-color);
 `
 

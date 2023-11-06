@@ -9,7 +9,7 @@ import imdbLogo from '../../assets/imdb.png'
 
 export default function Footer() {
   return (
-    <FooterStyled>
+    <StyledFooter>
       <div className="social-container">
         <div>
           <a
@@ -67,11 +67,11 @@ export default function Footer() {
           <img className="imdb-img" src={imdbLogo} alt="imdb" title="IMDB" />
         </div>
       </div>
-    </FooterStyled>
+    </StyledFooter>
   )
 }
 
-const FooterStyled = styled.footer`
+const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 30px 20px 10px 20px;
