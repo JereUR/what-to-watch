@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Loader from '../Loader'
-import MediaForm from './MediaForm'
+import MediaForm from './Forms/MediaForm'
 
 export default function Home() {
   const handleClickScroll = () => {
