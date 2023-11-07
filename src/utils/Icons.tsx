@@ -19,3 +19,5 @@ export const cameraIcon = (
 export const genreIcon = <i className="ti ti-movie" />
 
 export const settingsIcon = <i className="ti ti-adjustments-alt" />
+
+export const refreshIcon = <i className="ti ti-refresh" />
