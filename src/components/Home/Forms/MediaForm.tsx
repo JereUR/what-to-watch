@@ -51,8 +51,7 @@ export default function MediaForm() {
       </ButtonContainer>
       <StyledSection>
         <button type="button" onClick={() => console.log('reset')}>
-          {refreshIcon}
-          <p>RESET VALUES</p>
+          {refreshIcon} RESET VALUES
         </button>
       </StyledSection>
       <ModalForms
@@ -82,6 +81,7 @@ const StyledMediaForm = styled.div`
 
 const StyledSection = styled.section`
   button {
+    display: flex;
     margin-left: 80%;
     margin-bottom: 3rem;
     margin-top: -2rem;
@@ -106,7 +106,7 @@ const StyledSection = styled.section`
     }
 
     i {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 `
