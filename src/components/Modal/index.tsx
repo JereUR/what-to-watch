@@ -32,7 +32,8 @@ export default function Modal({ children, state, setState, title }: Props) {
 
 const ModalContainer = styled.div`
   min-height: 200px;
-  width: 170vh;
+  max-height: 800px;
+  width: 160vh;
   background: var(--header-words);
   position: relative;
   border-radius: 5px;
