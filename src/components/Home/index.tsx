@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Loader from '../Loader'
+/* import Loader from '../Loader' */
 import MediaForm from './Forms/MediaForm'
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
     <StyledHome>
       <article>
         <MediaForm />
-        <Loader />
+        {/* <Loader /> */}
         {/* {search != null && !loading && <InfoTable data={data} />} */}
       </article>
       <button
