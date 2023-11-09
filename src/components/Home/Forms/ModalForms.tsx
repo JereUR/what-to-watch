@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Modal from '../../Modal'
 import { TYPES } from './TYPES'
 import { GENRES } from './GENRES'
+import { VOTES, DEFAULT_VOTES, TOP, DEFAULT_TOP } from './EXTRA_OPTIONS'
 
 interface Props {
   filmTypeState: boolean
@@ -32,18 +33,20 @@ export default function ModalForms({
       >
         <Content>
           <StyledType>
-            {TYPES.map((type) => (
-              <div key={type.id}>
-                <input
-                  type="checkbox"
-                  value={type.value}
-                  id={type.id}
-                  className="type-input"
-                  /* defaultChecked={types.includes(type.value)} */
-                />
-                <StyledLabel htmlFor={type.id}>{type.label}</StyledLabel>
-              </div>
-            ))}
+            <div className="type-section">
+              {TYPES.map((type) => (
+                <div key={type.id} className="input-container">
+                  <input
+                    type="checkbox"
+                    value={type.value}
+                    id={type.id}
+                    className="type-input"
+                    /* defaultChecked={types.includes(type.value)} */
+                  />
+                  <StyledLabel htmlFor={type.id}>{type.label}</StyledLabel>
+                </div>
+              ))}
+            </div>
           </StyledType>
         </Content>
       </Modal>
@@ -51,21 +54,24 @@ export default function ModalForms({
       {/* Genre Modal */}
 
       <Modal state={genreState} setState={setGenreState} title="SELECT GENRE/S">
-        <Content>
+        <ContentGenre>
           <StyledType>
-            {GENRES.map((genre) => (
-              <div key={genre.id}>
-                <input
-                  type="checkbox"
-                  value={genre.value}
-                  id={genre.id}
-                  /* defaultChecked={genres.includes(genre.value)} */
-                />
-                <StyledLabel htmlFor={genre.id}>{genre.label}</StyledLabel>
-              </div>
-            ))}
+            <div className="genres-section">
+              {GENRES.map((genre) => (
+                <div key={genre.id}>
+                  <input
+                    type="checkbox"
+                    value={genre.value}
+                    id={genre.id}
+                    className="genre-input"
+                    /* defaultChecked={genres.includes(genre.value)} */
+                  />
+                  <StyledLabel htmlFor={genre.id}>{genre.label}</StyledLabel>
+                </div>
+              ))}
+            </div>
           </StyledType>
-        </Content>
+        </ContentGenre>
       </Modal>
 
       {/* Extra Options Modal */}
@@ -77,17 +83,28 @@ export default function ModalForms({
       >
         <Content>
           <StyledType>
-            {GENRES.map((genre) => (
-              <div key={genre.id}>
-                <input
-                  type="checkbox"
-                  value={genre.value}
-                  id={genre.id}
-                  /* defaultChecked={genres.includes(genre.value)} */
-                />
-                <StyledLabel htmlFor={genre.id}>{genre.label}</StyledLabel>
-              </div>
-            ))}
+            <div className="votes-section">
+              <select name="select-votes" className="num-votes">
+                <option value={DEFAULT_VOTES.value}>
+                  {DEFAULT_VOTES.label}
+                </option>
+                {VOTES.map((vote) => (
+                  <option key={vote.value} value={vote.value}>
+                    {vote.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="top-section">
+              <select name="select-top" className="top-number">
+                <option value={DEFAULT_TOP.value}>{DEFAULT_TOP.label}</option>
+                {TOP.map((top) => (
+                  <option key={top.value} value={top.value}>
+                    {top.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </StyledType>
         </Content>
       </Modal>
@@ -118,6 +135,12 @@ const Content = styled.div`
   }
 `
 
+const ContentGenre = styled(Content)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
 const StyledLabel = styled.label`
   display: inline;
   font-weight: 600;
@@ -138,6 +161,61 @@ const StyledLabel = styled.label`
 `
 
 const StyledType = styled.div`
+  margin: 0 auto;
+
+  .type-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    label {
+      display: inline;
+      font-weight: 600;
+      color: var(--words-color);
+      margin-bottom: 11px;
+      width: 70vh;
+      float: left;
+      cursor: pointer;
+      padding: 0 0.8rem;
+      box-sizing: border-box;
+      margin: 1rem;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 100px;
+      transition: all 0.5s ease 0s;
+      background: var(--third-color);
+      box-shadow: 0 0 1px 1px var(--main-color);
+    }
+  }
+
+  .genres-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+
+    label {
+      display: inline;
+      font-weight: 600;
+      color: var(--words-color);
+      width: 300px;
+      float: left;
+      cursor: pointer;
+      padding: 0 0.8rem;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 100px;
+      transition: all 0.5s ease 0s;
+      background: var(--third-color);
+      box-shadow: 0 0 1px 1px var(--main-color);
+    }
+
+    input[type='checkbox']:checked + label:after {
+      margin-left: -2em;
+      margin-top: 1em;
+    }
+  }
+
   label:hover {
     transform: scale(1.02);
   }
