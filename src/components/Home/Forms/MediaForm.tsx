@@ -8,7 +8,8 @@ import {
   refreshIcon,
   settingsIcon
 } from '../../../utils/Icons'
-import ModalForms from './ModalForms'
+import ModalForms from './Modals/ModalForms'
+import SubmitButton from './SubmitButton'
 
 export default function MediaForm() {
   const [filmTypeState, setFilmTypeState] = useState(false)
@@ -62,6 +63,7 @@ export default function MediaForm() {
         extraOptionsState={extraOptionsState}
         setExtraOptionsState={setExtraOptionsState}
       />
+      <SubmitButton />
     </StyledMediaForm>
   )
 }
@@ -81,20 +83,17 @@ const StyledMediaForm = styled.div`
 
 const StyledSection = styled.section`
   button {
-    display: flex;
-    margin-left: 80%;
-    margin-bottom: 3rem;
-    margin-top: -2rem;
-    padding-top: 1.5rem;
+    position: absolute;
+    padding: 5px;
+    right: 30px;
     width: 15vw;
     border-radius: 100px;
-    font-size: 1rem;
+    font-size: 24px;
     font-weight: bold;
     background-color: var(--background-color);
     box-shadow: 0 0 3px 3px var(--main-color);
     color: var(--main-color);
     cursor: pointer;
-    outline: 0;
     border: 0;
     transition: all 0.3s ease-out;
 
