@@ -17,6 +17,7 @@ function App() {
 
 const MainContainer = styled.div`
   max-width: 100%;
+  height: 100%;
   padding: 0;
   background-color: var(--background-color);
 `
