@@ -75,3 +75,11 @@ input[type='checkbox']:checked:disabled + label {
 input[type='checkbox']:checked:disabled + label:before {
   border-color: #bdbdbd;
 }
+
+/*Genre Modal*/
+
+.genre-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
