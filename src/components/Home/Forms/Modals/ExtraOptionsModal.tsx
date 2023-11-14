@@ -8,6 +8,7 @@ import {
   TOP,
   VOTES
 } from '../FormItems.tsx/EXTRA_OPTIONS'
+import { useSearchActions } from '../../../../hooks/useSearchActions'
 
 interface Props {
   extraOptionsState: boolean
@@ -18,6 +19,16 @@ export default function ExtraOptionsModal({
   extraOptionsState,
   setExtraOptionsState
 }: Props) {
+  const { updateExtraVotes, updateExtraTop } = useSearchActions()
+
+  const handleVotes = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    updateExtraVotes(e.target.value)
+  }
+
+  const handleTop = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    updateExtraTop(e.target.value)
+  }
+
   return (
     <Modal
       state={extraOptionsState}
@@ -27,7 +38,11 @@ export default function ExtraOptionsModal({
       <Content>
         <StyledExtraOptions>
           <div className="votes-section">
-            <select name="select-votes" className="num-votes">
+            <select
+              name="select-votes"
+              className="num-votes"
+              onChange={handleVotes}
+            >
               <option value={DEFAULT_VOTES.value}>{DEFAULT_VOTES.label}</option>
               {VOTES.map((vote) => (
                 <option key={vote.value} value={vote.value}>
@@ -37,7 +52,11 @@ export default function ExtraOptionsModal({
             </select>
           </div>
           <div className="top-section">
-            <select name="select-top" className="top-number">
+            <select
+              name="select-top"
+              className="top-number"
+              onChange={handleTop}
+            >
               <option value={DEFAULT_TOP.value}>{DEFAULT_TOP.label}</option>
               {TOP.map((top) => (
                 <option key={top.value} value={top.value}>
