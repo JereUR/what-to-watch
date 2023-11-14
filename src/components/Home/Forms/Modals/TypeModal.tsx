@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import Modal from '../../../Modal'
 import { TYPES } from '../FormItems.tsx/TYPES'
 import Content from './Content'
+import { useAppSelector } from '../../../../hooks/store'
+import { useSearchActions } from '../../../../hooks/useSearchActions'
 
 interface Props {
   filmTypeState: boolean
@@ -9,6 +11,17 @@ interface Props {
 }
 
 export default function TypeModal({ filmTypeState, setFilmTypeState }: Props) {
+  const types = useAppSelector((state) => state.search.types)
+  const { addType, removeTypeItem } = useSearchActions()
+
+  const typesHandleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!types.includes(e.target.value)) {
+      addType(e.target.value)
+    } else {
+      removeTypeItem(e.target.value)
+    }
+  }
+
   return (
     <Modal
       state={filmTypeState}
@@ -25,7 +38,8 @@ export default function TypeModal({ filmTypeState, setFilmTypeState }: Props) {
                   value={type.value}
                   id={type.id}
                   className="type-input"
-                  /* defaultChecked={types.includes(type.value)} */
+                  onChange={typesHandleChecked}
+                  defaultChecked={types.includes(type.value)}
                 />
                 <label htmlFor={type.id}>{type.label}</label>
               </div>
