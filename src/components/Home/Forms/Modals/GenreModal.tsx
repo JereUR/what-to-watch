@@ -3,6 +3,8 @@ import Modal from '../../../Modal'
 import Content from './Content'
 import { GENRES } from '../FormItems.tsx/GENRES'
 import styled from 'styled-components'
+import { useAppSelector } from '../../../../hooks/store'
+import { useSearchActions } from '../../../../hooks/useSearchActions'
 
 interface Props {
   genreState: boolean
@@ -10,6 +12,17 @@ interface Props {
 }
 
 export default function GenreModal({ genreState, setGenreState }: Props) {
+  const genres = useAppSelector((state) => state.search.genres)
+  const { addGenre, removeGenreItem } = useSearchActions()
+
+  const genresHandleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!genres.includes(e.target.value)) {
+      addGenre(e.target.value)
+    } else {
+      removeGenreItem(e.target.value)
+    }
+  }
+
   return (
     <Modal state={genreState} setState={setGenreState} title="SELECT GENRE/S">
       <Content className="genre-modal">
@@ -22,7 +35,8 @@ export default function GenreModal({ genreState, setGenreState }: Props) {
                   value={genre.value}
                   id={genre.id}
                   className="genre-input"
-                  /* defaultChecked={genres.includes(genre.value)} */
+                  onChange={genresHandleChecked}
+                  defaultChecked={genres.includes(genre.value)}
                 />
                 <label htmlFor={genre.id}>{genre.label}</label>
               </div>
