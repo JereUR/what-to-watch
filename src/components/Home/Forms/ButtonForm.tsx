@@ -1,20 +1,14 @@
 import styled from 'styled-components'
 
 interface Button {
-  key: string
   onClickFunction: () => void
   icon: JSX.Element
   text: string
 }
 
-export default function ButtonForm({
-  key,
-  onClickFunction,
-  icon,
-  text
-}: Button) {
+export default function ButtonForm({ onClickFunction, icon, text }: Button) {
   return (
-    <StyledButton type="button" onClick={onClickFunction} key={key}>
+    <StyledButton type="button" onClick={onClickFunction}>
       {icon} {text}
     </StyledButton>
   )
