@@ -11,10 +11,18 @@ interface Props {
 }
 
 export default function Modal({ children, state, setState, title }: Props) {
+  const handleOverlayClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (event.target === event.currentTarget) {
+      setState(false)
+    }
+  }
+
   return (
     <>
       {state && (
-        <Overlay>
+        <Overlay onClick={handleOverlayClick}>
           <ModalContainer>
             <ModalHeader>
               <h3>{title}</h3>
