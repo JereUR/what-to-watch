@@ -11,12 +11,16 @@ import {
 import ModalForms from './Modals/ModalForms'
 import SubmitButton from './SubmitButton'
 import { useSearchActions } from '../../../hooks/useSearchActions'
+import { useAppSelector } from '../../../hooks/store'
 
 export default function MediaForm() {
   const [filmTypeState, setFilmTypeState] = useState(false)
   const [genreState, setGenreState] = useState(false)
   const [extraOptionsState, setExtraOptionsState] = useState(false)
   const { resetValues } = useSearchActions()
+  const data = useAppSelector((state) => state.results)
+
+  console.log(data)
 
   const handleFilmModal = () => {
     setFilmTypeState(!filmTypeState)
