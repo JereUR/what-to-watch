@@ -3,6 +3,7 @@ import {
   addNewType,
   removeGenre,
   removeType,
+  setDefaultState,
   updateTop,
   updateVotes
 } from '../store/search/slice'
@@ -35,12 +36,17 @@ export const useSearchActions = () => {
     dispatch(updateTop(value))
   }
 
+  const resetValues = () => {
+    dispatch(setDefaultState())
+  }
+
   return {
     addType,
     removeTypeItem,
     addGenre,
     removeGenreItem,
     updateExtraVotes,
-    updateExtraTop
+    updateExtraTop,
+    resetValues
   }
 }

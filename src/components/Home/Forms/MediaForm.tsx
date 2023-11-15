@@ -10,11 +10,17 @@ import {
 } from '../../../utils/Icons'
 import ModalForms from './Modals/ModalForms'
 import SubmitButton from './SubmitButton'
+import { useAppSelector } from '../../../hooks/store'
+import { useSearchActions } from '../../../hooks/useSearchActions'
 
 export default function MediaForm() {
   const [filmTypeState, setFilmTypeState] = useState(false)
   const [genreState, setGenreState] = useState(false)
   const [extraOptionsState, setExtraOptionsState] = useState(false)
+  const values = useAppSelector((state) => state.search)
+  const { resetValues } = useSearchActions()
+
+  console.log({ values })
 
   const handleFilmModal = () => {
     setFilmTypeState(!filmTypeState)
@@ -51,7 +57,7 @@ export default function MediaForm() {
         />
       </ButtonContainer>
       <StyledSection>
-        <button type="button" onClick={() => console.log('reset')}>
+        <button type="button" onClick={() => resetValues()}>
           {refreshIcon} RESET VALUES
         </button>
       </StyledSection>

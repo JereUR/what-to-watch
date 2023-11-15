@@ -11,7 +11,7 @@ interface SearchState {
   extra_options: ExtraOptions
 }
 
-const DEAFULT_STATE: SearchState = {
+const DEFAULT_STATE: SearchState = {
   types: [],
   genres: [],
   extra_options: {
@@ -22,7 +22,7 @@ const DEAFULT_STATE: SearchState = {
 
 export const searchSlice = createSlice({
   name: 'search',
-  initialState: DEAFULT_STATE,
+  initialState: DEFAULT_STATE,
   reducers: {
     addNewType: (state, action: PayloadAction<string>) => {
       state.types.push(action.payload)
@@ -41,6 +41,9 @@ export const searchSlice = createSlice({
     },
     updateTop: (state, action: PayloadAction<string>) => {
       state.extra_options.top = action.payload
+    },
+    setDefaultState: (state) => {
+      return { ...state, ...DEFAULT_STATE }
     }
   }
 })
@@ -52,5 +55,6 @@ export const {
   addNewGenre,
   removeGenre,
   updateVotes,
-  updateTop
+  updateTop,
+  setDefaultState
 } = searchSlice.actions
