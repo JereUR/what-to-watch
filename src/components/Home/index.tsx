@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
-/* import Loader from '../Loader' */
+import Loader from '../Loader'
 import MediaForm from './Forms/MediaForm'
+import { useState } from 'react'
+import Results from '../Results'
+import { useAppSelector } from '../../hooks/store'
 
 export default function Home() {
+  const [showData, setShowData] = useState(false)
+  const loading = useAppSelector((state) => state.results.loading)
+
   const handleClickScroll = () => {
     document.querySelector('.header')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -11,9 +17,9 @@ export default function Home() {
   return (
     <StyledHome>
       <article>
-        <MediaForm />
-        {/* <Loader /> */}
-        {/* {search != null && !loading && <InfoTable data={data} />} */}
+        <MediaForm setShowData={setShowData} />
+        {loading && <Loader />}
+        {showData && <Results />}
       </article>
       <button
         onClick={handleClickScroll}
