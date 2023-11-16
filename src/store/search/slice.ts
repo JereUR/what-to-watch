@@ -5,7 +5,7 @@ interface ExtraOptions {
   top: string
 }
 
-interface SearchState {
+export interface SearchState {
   types: string[]
   genres: string[]
   extra_options: ExtraOptions
