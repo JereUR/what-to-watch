@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-interface ResultItem {
+export interface ResultItem {
   imDbRating: string
   image: string
   title: string
@@ -12,101 +12,28 @@ interface ResultItem {
   id: string
 }
 
-const DEFAULT_STATE: ResultItem[] = [
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/700x400',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/900x500',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  },
-  {
-    imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
-    title: 'Breaking Bad',
-    genres: 'Crimen, Drama, Thriller',
-    description: 'TV Series 2008–2013 TV-MA 50h 30m',
-    plot: "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.",
-    imDbRatingVotes: '2.1M',
-    stars: 'Bryan Cranston, Aaron Paul, Anna Gunn',
-    id: '1'
-  }
-]
+export interface ResultsState {
+  data: ResultItem[]
+  loading: boolean
+}
+
+const DEFAULT_STATE: ResultsState = {
+  data: [],
+  loading: false
+}
 
 export const resultsSlice = createSlice({
   name: 'results',
   initialState: DEFAULT_STATE,
-  reducers: {}
+  reducers: {
+    getDataStart: (state) => {
+      return { ...state, loading: true }
+    },
+    getDataSuccess: (state, action: PayloadAction<ResultItem[]>) => {
+      return { ...state, data: action.payload, loading: false }
+    }
+  }
 })
 
 export default resultsSlice.reducer
+export const { getDataStart, getDataSuccess } = resultsSlice.actions
