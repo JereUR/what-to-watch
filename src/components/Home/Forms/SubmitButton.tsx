@@ -1,8 +1,17 @@
 import styled, { keyframes } from 'styled-components'
 import { submitIcon } from '../../../utils/Icons'
+import { useAppSelector } from '../../../hooks/store'
+import { useResultsActions } from '../../../hooks/useResultsActions'
+import { showDataType } from './MediaForm'
 
-export default function SubmitButton() {
-  const handleSubmit = () => {}
+export default function SubmitButton({ setShowData }: showDataType) {
+  const filters = useAppSelector((state) => state.search)
+  const { getResults } = useResultsActions()
+
+  const handleSubmit = () => {
+    getResults(filters)
+    setShowData(true)
+  }
 
   return (
     <StyledSubmitButton>
