@@ -5,7 +5,7 @@ import { AppDispatch } from '..'
 const STATIC_DATA: ResultItem[] = [
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/500x1200',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -16,7 +16,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/700x400',
+    image: 'https://source.unsplash.com/700x1400',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -27,7 +27,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/900x500',
+    image: 'https://source.unsplash.com/900x1500',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -38,7 +38,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/800x1600',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -49,7 +49,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/800x1600',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -60,7 +60,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/800x1600',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -71,7 +71,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/800x1600',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -82,7 +82,7 @@ const STATIC_DATA: ResultItem[] = [
   },
   {
     imDbRating: '9.5',
-    image: 'https://source.unsplash.com/800x600',
+    image: 'https://source.unsplash.com/800x1600',
     title: 'Breaking Bad',
     genres: 'Crimen, Drama, Thriller',
     description: 'TV Series 2008–2013 TV-MA 50h 30m',
@@ -107,5 +107,5 @@ export const fetchData =
 
     setTimeout(() => {
       dispatch(getDataSuccess(STATIC_DATA))
-    }, 2000)
+    }, 1000)
   }
