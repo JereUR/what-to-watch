@@ -1,15 +1,20 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export interface ResultItem {
-  imDbRating: string
-  image: string
-  title: string
-  genres: string
   description: string
-  plot: string
-  imDbRatingVotes: string
-  stars: string
+  genres: string
   id: string
+  image: string
+  imDbRating: string
+  imDbRatingVotes: string
+  plot: string
+  stars: string
+  title: string
+}
+
+export interface ResultItemProps {
+  index: number
+  item: ResultItem
 }
 
 export interface ResultsState {
