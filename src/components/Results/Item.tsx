@@ -49,6 +49,11 @@ const StyledItem = styled.div`
   padding-bottom: 30px;
   border-bottom: 1px solid var(--words-color);
 
+  &:first-child {
+    border-top: 1px solid var(--words-color);
+    padding-top: 30px;
+  }
+
   .film-section-1 {
     position: relative;
     display: flex;
@@ -59,8 +64,12 @@ const StyledItem = styled.div`
       position: absolute;
       font-size: 26px;
       font-weight: bold;
-      padding: 0.5rem;
-      color: var(--main-color);
+      background-color: var(--main-color);
+      color: var(--header-words);
+      border-radius: 10px;
+      border-top-left-radius: 0px;
+      padding: 10px 20px;
+      line-height: 2px;
     }
 
     .film-image {
