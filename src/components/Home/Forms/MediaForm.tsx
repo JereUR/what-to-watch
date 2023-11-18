@@ -96,7 +96,7 @@ const StyledSection = styled.section`
     border-radius: 100px;
     font-size: 24px;
     font-weight: bold;
-    background-color: var(--background-color);
+    background-color: transparent;
     box-shadow: 0 0 3px 3px var(--main-color);
     color: var(--main-color);
     cursor: pointer;
@@ -105,9 +105,8 @@ const StyledSection = styled.section`
 
     &:hover {
       color: var(--third-color);
-      background-color: var(--main-color);
       box-shadow: 0 0 3px 3px var(--third-color);
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     i {
