@@ -25,20 +25,22 @@ export default function RightSection({
     <StyledRightSection>
       <div className="film-info">
         <div className="film-title-info">
-          <p className="film-title">
-            {title} <i>{description}</i>
-          </p>
+          <div className="title-section">
+            <p className="film-title">
+              {title} <i>{description}</i>
+            </p>
+            <p className="film-genre">{genres}</p>
+          </div>
+
           <div className="btn-title-div">
             <button
               type="button"
-              className="btn-title"
               /* onClick={handleTitle} */
             >
               More info...
             </button>
             <button
               type="button"
-              className="btn-title"
               /* onClick={handleIMDB} */
             >
               Go to IMDB...
@@ -46,26 +48,30 @@ export default function RightSection({
           </div>
         </div>
         <div className="film-calification">
-          <img src={imdbLogo} alt="imdb-logo" className="imdb-logo" />
-          <p className="calification">
+          <img src={imdbLogo} alt="imdb-logo" />
+          <p>
             ⭐{imDbRating} - <i>{imDbRatingVotes} Reviews</i>
           </p>
         </div>
-        <p className="film-genre">{genres}</p>
-        <i className="film-synopsis">{plot}</i>
-        <hr className="hr-results" />
-        <p className="film-cast">
-          <u>
-            <b>Main cast:</b>
-          </u>{' '}
-          {stars}
-        </p>
+        <div className="plot-section">
+          <i>{plot}</i>
+        </div>
+        <hr />
+        <div className="cast-section">
+          <p>
+            <u>
+              <b>Main cast:</b>
+            </u>{' '}
+            {stars}
+          </p>
+        </div>
+
         <div className="film-trailer">
           <button
             type="button"
             /* onClick={handleTrailer} */
           >
-            {'WATCH TRAILER>>>'}
+            WATCH TRAILER
           </button>
         </div>
       </div>
@@ -74,21 +80,59 @@ export default function RightSection({
 }
 
 const StyledRightSection = styled.div`
-  position: relative;
-  display: flex;
   font-weight: 500;
-  color: var(--second-color);
-  justify-content: space-around;
+  color: var(--main-color);
 
-  .hr-results {
-    opacity: 0.3;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  .film-title-info {
+    display: flex;
+    justify-content: space-between;
+    line-height: 10px;
+
+    .title-section {
+      display: block;
+      text-align: start;
+      .film-title {
+        font-size: 32px;
+      }
+
+      .film-genre {
+        margin-left: 10px;
+        font-style: italic;
+        font-size: 16px;
+        color: var(--second-color);
+      }
+    }
   }
 
-  .film-cast {
-    font-size: 14px;
-    letter-spacing: auto;
+  .film-calification {
+    display: flex;
+    justify-content: start;
+    margin: 30px 10px;
+    gap: 20px;
+    line-height: 5px;
+    color: var(--second-color);
+
+    img {
+      width: auto;
+      height: 30px;
+    }
+  }
+
+  .plot-section {
+    text-align: start;
+    margin: 10px;
+    color: var(--second-color);
+  }
+
+  hr {
+    opacity: 0.3;
+    margin: 20px auto;
+  }
+
+  .cast-section {
+    text-align: start;
+    margin: 10px;
+    color: var(--second-color);
   }
 
   .film-trailer {
@@ -97,7 +141,7 @@ const StyledRightSection = styled.div`
       border-radius: 5rem;
       border: none;
       padding: 10px;
-      width: 70%;
+      width: 80%;
       margin-top: 2rem;
       background-color: transparent;
       box-shadow: 0 0 3px 3px var(--main-color);
@@ -109,9 +153,8 @@ const StyledRightSection = styled.div`
 
       &:hover {
         color: var(--third-color);
-        background-color: var(--main-color);
         box-shadow: 0 0 3px 3px var(--third-color);
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
     }
   }
