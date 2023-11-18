@@ -122,8 +122,8 @@ const StyledFooter = styled.footer`
       }
 
       .imdb-img {
-        width: 50px;
-        height: 50px;
+        width: auto;
+        height: 35px;
       }
     }
   }
