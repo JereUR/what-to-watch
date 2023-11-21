@@ -22,8 +22,7 @@ export default function Results() {
 }
 
 const StyledResults = styled.div`
-  padding: 0 1rem 0 1rem;
-  padding-top: 5rem;
+  padding: 15px 10px 0px 10px;
   color: var(--header-words);
 
   .no-data {
