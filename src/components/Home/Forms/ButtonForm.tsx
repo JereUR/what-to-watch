@@ -33,7 +33,9 @@ const StyledButton = styled.button`
   margin-bottom: 1.3rem;
 
   &:hover {
-    transform: scale(1.04);
+    color: var(--third-color);
+    box-shadow: 0 0 3px 3px var(--third-color);
+    transform: scale(1.03);
   }
 
   i {
