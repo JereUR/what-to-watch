@@ -31,7 +31,6 @@ export default function RightSection({
             </p>
             <p className="film-genre">{genres}</p>
           </div>
-
           <div className="btn-title-div">
             <button
               type="button"
@@ -102,12 +101,40 @@ const StyledRightSection = styled.div`
         color: var(--second-color);
       }
     }
+
+    .btn-title-div {
+      display: flex;
+      flex-direction: column;
+      padding: 10px auto;
+
+      button {
+        position: initial;
+        border-radius: 5rem;
+        border: none;
+        padding: 10px;
+        margin: 10px;
+        margin-right: 4vw;
+        background-color: transparent;
+        box-shadow: 0 0 3px 3px var(--main-color);
+        color: var(--main-color);
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          color: var(--third-color);
+          box-shadow: 0 0 3px 3px var(--third-color);
+          transform: scale(1.03);
+        }
+      }
+    }
   }
 
   .film-calification {
     display: flex;
     justify-content: start;
-    margin: 30px 10px;
+    margin: 30px 10px 50px 10px;
     gap: 20px;
     line-height: 5px;
     color: var(--second-color);
